@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  hello:
+  launch-funny-bot:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using ssh key
@@ -15,5 +15,8 @@ jobs:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.KEY }}
         script: |
-          whoami
-          ls -al  
+          cd Discord-Joke-bot
+          git pull
+          npm install
+          pm2 restart discordBot
+           
